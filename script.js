@@ -1,4 +1,4 @@
-const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxx8OOTbVVgsjBj3Cvv6jW9lYfE2i0Hdlx9ggdpA8WlYF0czlf37TY9MSz6bdmWLFb6/exec'; // 🔁 Troque pelo seu
+const APP_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxx8OOTbVVgsjBj3Cvv6jW9lYfE2i0Hdlx9ggdpA8WlYF0czlf37TY9MSz6bdmWLFb6/exec'; // substitua com seu App Script
 
 document.addEventListener("DOMContentLoaded", () => {
     const estados = [
@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const sigla = document.getElementById("estado").value;
 
     const tribunalSelect = document.getElementById("tribunal");
-    tribunalSelect.classList.remove("hidden");
     tribunalSelect.innerHTML = '<option selected disabled>Carregando tribunais...</option>';
 
     fetch(`${APP_SCRIPT_URL}?estado=${sigla}`)
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function popularMunicipiosAPI(sigla) {
     const municipioSelect = document.getElementById("municipio");
-    municipioSelect.classList.remove("hidden");
     municipioSelect.innerHTML = '<option selected disabled>Carregando municípios...</option>';
 
     fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${sigla}/municipios`)
@@ -102,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     while (diasAdicionados < prazo) {
         data.setDate(data.getDate() + 1);
-        const diaSemana = data.getDay(); // 0 = domingo, 6 = sábado
+        const diaSemana = data.getDay();
         const dataStr = data.toISOString().split('T')[0];
 
         let tipo = '';
@@ -143,9 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .replace(/\s+/g, '-');
 
     const urls = [
-        `/api/feriados?ano=${ano}`,
-        `/api/feriados?ano=${ano}&estado=${estadoLower}`,
-        `/api/feriados?ano=${ano}&estado=${estadoLower}&municipio=${municipio}`
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://brasilapi.com.br/api/feriados/v1/${ano}`)}`,
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://brasilapi.com.br/api/feriados/v1/${ano}/${estadoLower}`)}`,
+        `https://api.allorigins.win/raw?url=${encodeURIComponent(`https://brasilapi.com.br/api/feriados/v1/${ano}/${estadoLower}/${municipioLower}`)}`
     ];
 
     const todos = [];
