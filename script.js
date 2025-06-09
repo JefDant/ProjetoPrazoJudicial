@@ -143,9 +143,9 @@ document.addEventListener("DOMContentLoaded", () => {
         .replace(/\s+/g, '-');
 
     const urls = [
-        `https://brasilapi.com.br/api/feriados/v1/${ano}`,
-        `https://brasilapi.com.br/api/feriados/v1/${ano}/${estadoLower}`,
-        `https://brasilapi.com.br/api/feriados/v1/${ano}/${estadoLower}/${municipioLower}`
+        `/api/feriados?ano=${ano}`,
+        `/api/feriados?ano=${ano}&estado=${estadoLower}`,
+        `/api/feriados?ano=${ano}&estado=${estadoLower}&municipio=${municipio}`
     ];
 
     const todos = [];
