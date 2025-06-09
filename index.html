@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Prazo Judicial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        .container {
+        margin-top: 40px;
+        }
+        .hidden {
+        display: none;
+        }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+        <h2 class="text-center mb-4">Calculadora de Prazo Judicial</h2>
+
+        <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="estado" class="form-label">Estado</label>
+            <select id="estado" class="form-select">
+            <option selected disabled>Selecione um estado</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="municipio" class="form-label">Município</label>
+            <select id="municipio" class="form-select">
+            <option selected disabled>Selecione um município</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="tribunal" class="form-label">Tribunal</label>
+            <select id="tribunal" class="form-select">
+            <option selected disabled>Selecione um tribunal</option>
+            </select>
+        </div>
+        </div>
+
+        <div class="row mb-3">
+        <div class="col-md-4">
+            <label for="materia" class="form-label">Matéria</label>
+            <select id="materia" class="form-select">
+            <option selected disabled>Selecione uma matéria</option>
+            <option value="civil">Cível</option>
+            <option value="criminal">Criminal</option>
+            <option value="trabalhista">Trabalhista</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="processo" class="form-label">Tipo de Processo</label>
+            <select id="processo" class="form-select">
+            <option selected disabled>Selecione o tipo de processo</option>
+            <option value="eletronico">Eletrônico</option>
+            <option value="fisico">Físico</option>
+            </select>
+        </div>
+
+        <div class="col-md-4">
+            <label for="tipo-contagem" class="form-label">Tipo de Contagem</label>
+            <select id="tipo-contagem" class="form-select">
+            <option value="corridos">Dias Corridos</option>
+            <option value="uteis">Dias Úteis</option>
+            </select>
+        </div>
+        </div>
+
+        <div class="row mb-3">
+        <div class="col-md-6">
+            <label for="data-inicial" class="form-label">Data Inicial</label>
+            <input type="date" id="data-inicial" class="form-control" />
+        </div>
+
+        <div class="col-md-6">
+            <label for="prazo" class="form-label">Prazo (em dias)</label>
+            <input type="number" id="prazo" class="form-control" placeholder="Ex: 5" />
+        </div>
+        </div>
+
+        <div class="d-grid">
+        <button id="calcular" class="btn btn-primary">Calcular Prazo Final</button>
+        </div>
+
+        <div class="mt-5">
+        <div id="resultado" class="table-responsive"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    </body>
+</html>
